@@ -14,6 +14,7 @@ const eqArrays = function(array1, array2) {
   }
   return true;
 };
+
 const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: "${actual}" === "${expected}"`);
@@ -47,10 +48,10 @@ const middle = function(array) {
     return [array[middleIndex - 1], array[middleIndex]];
     //   the main reason we used the [middleIndex -1] is for example even array such as [1,2,3,4] is divided by 2 the output will be 2, but the index of 2 in array is (3) that is one number higher than what we want to come first. we want it to be (2) then (3) so we subtract it by 1.
   }
-};   
-console.log(middle([1, 2, 3, 4])) // => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])) // => [3, 4]
-console.log(middle([1, 2, 3])) // => [2]
-console.log(middle([1, 2, 3, 4, 5])) // => [3]
-console.log(middle([1])) // => []
-console.log(middle([1, 2])) // => []
+};
+console.log(middle([1, 2, 3, 4])); // => [2, 3]
+console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]
+console.log(middle([1, 2, 3])); // => [2]
+console.log(middle([1, 2, 3, 4, 5])); // => [3]
+console.log(middle([1])); // => []
+console.log(middle([1, 2])); // => []

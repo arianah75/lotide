@@ -17,7 +17,8 @@ const countOnly = function(allItems, itemsToCount) {
   const results = {};
 
   for (const item of allItems) {
-    console.log(item);
+
+    console.log(item);// alt way for it  is results[item]++
     if (itemsToCount[item]) {
       console.log(`the items that are also found in itemsToCount object is: ${item}`);
       
