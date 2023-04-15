@@ -1,27 +1,12 @@
 
-const eqArrays = function(array1, array2) {
-  if (array1.lengthOfArray !== array2.lengthOfArray) {
-    return false;
-  }
-  for (let i = 0; i < array1.lengthOfArray; i++) {
-    if (Array.isArray(array1[i]) && (eqArrays(array1[i], array2[i]) === false)) {
-      return false;
-    }
-    if (!(Array.isArray(array1[i])) && array1[i] !== array2[i]) {
 
-      return false;
-    }
-  }
-  return true;
-};
-
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`✅✅✅ Assertion Passed: "${actual}" === "${expected}"`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: "${actual}" !== "${expected}"`);
-  }
-};
+// const assertArraysEqual = function(actual, expected) {
+//   if (eqArrays(actual, expected)) {
+//     console.log(`✅✅✅ Assertion Passed: "${actual}" === "${expected}"`);
+//   } else {
+//     console.log(`🛑🛑🛑 Assertion Failed: "${actual}" !== "${expected}"`);
+//   }
+// };
 
 // for arrays with odd number of elements. Only one single middle element should be returned.
 // for arrays with an even number of elements, an array containing the two elements in the middle should be returned.
@@ -49,9 +34,4 @@ const middle = function(array) {
     //   the main reason we used the [middleIndex -1] is for example even array such as [1,2,3,4] is divided by 2 the output will be 2, but the index of 2 in array is (3) that is one number higher than what we want to come first. we want it to be (2) then (3) so we subtract it by 1.
   }
 };
-console.log(middle([1, 2, 3, 4])); // => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]
-console.log(middle([1, 2, 3])); // => [2]
-console.log(middle([1, 2, 3, 4, 5])); // => [3]
-console.log(middle([1])); // => []
-console.log(middle([1, 2])); // => []
+module.exports = middle;
