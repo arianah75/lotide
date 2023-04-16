@@ -26,6 +26,20 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
-* `function1(...)`: description
-* `function2(...)`: description
-* `function3(...)`: description
+* assertArraysEqual
+* description
+* assertEqual
+* assertObjectsEqual
+* countLetters
+* countOnly
+* eqArrays
+* eqObjects
+* findKey
+* findKeyByValue
+* head
+* letterPositions
+* map
+* middle
+* tail
+* takeUntil
+* without
