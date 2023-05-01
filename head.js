@@ -1,4 +1,2 @@
-const head = function (array) {
-  return array[0];
-};
+const head = (array) => array[0];
 module.exports = head;
