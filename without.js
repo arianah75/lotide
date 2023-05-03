@@ -1,11 +1,14 @@
-const without = function (source, itemsToRemove) {
+const without = (source, itemsToRemove) => {
+  let result = [];
   for (let i = 0; i < source.length; i++) {
-    for (let x = 0; x < itemsToRemove.length; x++) {
-      if (source[i] === itemsToRemove[x]) {
-        source.splice(i, 1);
-      }
+    if (source[i] !== itemsToRemove[i]) {
+      result.push(source[i]);
     }
   }
-  return source;
+  return result;
 };
+
+console.log(without([1, 2, 3], [1])); // => [2, 3]
+console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
+
 module.exports = without;
