@@ -1,11 +1,28 @@
-const findKeyByValues = (object, value) => {
-  for (const key in object) {
-    // console.log(object[key]) => to find the values of the key;
-    // console.log(key) => to find the keys of the object
+const assertEqual = require("./assertEqual");
+
+const findKeyByValue = (object, value) => {
+  const keys = Object.keys(object);
+  for (const key of keys) {
     if (object[key] === value) {
       return key;
     }
   }
-  return undefined; // if there is no key with given value in function.
+  return undefined;
+  // for (const key in object) {
+  //   if (object[key] === value) {
+  //     return key;
+  //   }
+  // }
+  // return undefined; // if there is no key with given value in function.
 };
-module.exports = findKeyByValues;
+
+// Test ////
+const bestTVShowsByGenre = {
+  sci_fi: "The Expanse",
+  comedy: "Brooklyn Nine-Nine",
+  drama: "The Wire",
+};
+
+assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
+assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
+module.exports = findKeyByValue;
