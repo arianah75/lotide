@@ -9,7 +9,7 @@ const countOnly = (allItems, itemsToCount) => {
         `the items that are also found in itemsToCount object is: ${item}`
       );
 
-      results[item] ? results[item] += 1 : results[item] = 1;
+      results[item] ? results[item] ++ : results[item] = 1;
     }
   }
   return results;
