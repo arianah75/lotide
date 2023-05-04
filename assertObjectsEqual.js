@@ -1,16 +1,17 @@
-const assertObjectsEqual = function (actual, expected) {
-  const inspect = require("util").inspect; // this line was added.
+const eqObjects = require("./eqObjects");
 
-  if (eqObjects(actual, expected)) {
-    console.log(
-      `✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`
-    );
-  } else {
-    console.log(
-      `🛑🛑🛑 node assertObjectsEqual.jsAssertion Failed:  ${inspect(
+const assertObjectsEqual = (actual, expected) => {
+  const inspect = require("util").inspect;
+  !eqObjects(actual, expected)
+    ? console.log(
+      `🛑🛑🛑 node assertObjectsEqual.jsAssertion Failed: ${inspect(
         actual
       )} !== ${inspect(expected)}`
+    )
+    : console.log(
+      `✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`
     );
-  }
 };
+assertObjectsEqual({ color: "red", seats: 4 }, { color: "red", seats: 4 });
+
 module.exports = assertObjectsEqual;
