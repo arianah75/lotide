@@ -1,30 +1,28 @@
+const assertEqual = require('./assertEqual');
+
 const eqObjects = (obj1, obj2) => {
-  // Check if the objects have the same number of keys
-  const obj1Keys = Object.keys(obj1);
-  const obj2Keys = Object.keys(obj2);
-  if (obj1Keys.length !== obj2Keys.length) {
+  // Check if the obj 1 and obj2 arrays of keys share the same length.
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
-  // Check if each key-value pair in the objects is equal
-  for (const key of obj1Keys) {
-    if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
-      // If the key points to an array, use the eqArrays helper function
-      if (!eqArrays(obj1[key], obj2[key])) {
-        return false;
-      }
-    } else if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
-      // If the key points to another object, recursively call the eqObjects function
-      if (!eqObjects(obj1[key], obj2[key])) {
-        return false;
-      }
-    } else {
-      // Otherwise, compare the values directly
-      if (obj1[key] !== obj2[key]) {
-        return false;
-      }
+  // loop through the keys of obj1
+  for (const key in obj1) {
+    // Check if the value of obj2  matches.
+    if (obj1[key] !== obj2[key]) {
+      return false;
     }
   }
   return true;
 };
+
+//TEST
+const shirtObject = { color: "red", size: "medium" };
+const anotherShirtObject = { size: "medium", color: "red" };
+const longSleeveShirtObject = { size: "medium", color: "red", sleeveLength: "long" };
+
+assertEqual(eqObjects(shirtObject, anotherShirtObject), true); // => true
+assertEqual(eqObjects(shirtObject, longSleeveShirtObject), false); // => false
+
+
 
 module.exports = eqObjects;
