@@ -1,7 +1,7 @@
 const assertEqual = require("./assertEqual");
 
 const countOnly = (allItems, itemsToCount) => {
-  const results = {};
+  const result = {};
   for (const item of allItems) {
     console.log(item);
     if (itemsToCount[item]) {
@@ -9,10 +9,10 @@ const countOnly = (allItems, itemsToCount) => {
         `the items that are also found in itemsToCount object is: ${item}`
       );
 
-      results[item] ? results[item] ++ : results[item] = 1;
+      result[item] === undefined ? result[item] = 1 : result[item] ++;
     }
   }
-  return results;
+  return result;
 };
 
 ////////// Test ////////////
