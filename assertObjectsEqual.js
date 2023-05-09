@@ -12,6 +12,5 @@ const assertObjectsEqual = (actual, expected) => {
       `✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`
     );
 };
-assertObjectsEqual({ color: "red", seats: 4 }, { color: "red", seats: 4 });
 
 module.exports = assertObjectsEqual;
